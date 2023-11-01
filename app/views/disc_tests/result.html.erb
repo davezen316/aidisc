@@ -1,0 +1,63 @@
+
+<%#= turbo_frame_tag "new_question", target: "_top" do %>
+  <%#= form_tag questions_path, class: 'w-full' do |f| %>
+    <%# <input type="text"
+            class="w-full rounded"
+            name="question[question]"
+            placeholder="Type your question"> %>
+  <%# end %>
+<%# end %>
+
+<%# <div class="h-48 w-full rounded mb-5 p-3 bg-gray-100"> %>
+  <%#= turbo_frame_tag "answer" %>
+<%# </div> %>
+
+<div class="container mt-12">
+  <h1>Your DISC Profile</h1>
+  
+  <div class="row mt-12">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Profile Scores</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Dominance: <%= @dominance %></li>
+          <li class="list-group-item">Influence: <%= @influence %></li>
+          <li class="list-group-item">Steadiness: <%= @steadiness %></li>
+          <li class="list-group-item">Compliance: <%=  @compliance %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Ask a Question</div>
+        <div class="card-body">
+          <%= form_with url: questions_path, method: :post, local: true do |f| %>
+            <div class="form-group">
+              <%= f.label :question, "Your Question" %>
+              <%= f.text_area :question, class: "form-control", placeholder: "Type your question here..." %>
+            </div>
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-12">
+    <br/>
+  </div>
+ 
+  <div class="row mt-12">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Response</div>
+        <div class="card-body">
+          <p><%= turbo_frame_tag "answer" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'https://code.jquery.com/jquery-3.5.1.slim.min.js' %>
+<%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' %>
