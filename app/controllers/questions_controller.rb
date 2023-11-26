@@ -41,8 +41,8 @@ class QuestionsController < ApplicationController
 
     openai_client = OpenAI::Client.new
     response = openai_client.chat(parameters: {
-      model: "gpt-3.5-turbo",
-      #model: "gpt-4",
+      #model: "gpt-3.5-turbo",
+      model: "gpt-4-1106-preview",
       messages: [{ role: "user", content: message_content }],
       temperature: 0.5,
     })
