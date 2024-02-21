@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+# CSS preprocessors and bundlers
+gem 'cssbundling-rails'
+
+# For user credential
+gem 'clearance'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
@@ -79,3 +85,5 @@ gem "neighbor", "~> 0.3.1"
 gem "ruby-openai", "~> 5.1"
 
 gem "byebug", "~> 11.1", :groups => [:development, :test]
+
+gem "sass", "~> 3.7"

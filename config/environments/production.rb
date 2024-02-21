@@ -90,4 +90,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Tells Rails how to construct links in emails sent from the application
+  config.action_mailer.default_url_options = { host: 'example.com' }
+
+  # Serves static files from public folder
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 end
