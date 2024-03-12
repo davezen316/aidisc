@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: my_gpt_production
   username: my_gpt
   password: <%= ENV["MY_GPT_DATABASE_PASSWORD"] %>
