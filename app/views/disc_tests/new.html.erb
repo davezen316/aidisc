@@ -1,99 +1,112 @@
-  <%= form_tag disc_test_result_path, method: :post, class: "bg-light p-5 rounded", data: { turbo: "false" } do %>
-    <div class="form-group">
-      <label>Question 1: When faced with a decision, I prefer to:</label><br>
-      <%= radio_button_tag 'question_1', 'D', required: true %> Quickly make a choice and take action.<br>
-      <%= radio_button_tag 'question_1', 'I' %> Discuss it with others and gather opinions.<br>
-      <%= radio_button_tag 'question_1', 'S' %> Take my time to think it through.<br>
-      <%= radio_button_tag 'question_1', 'C' %> Analyze all the data and details first.<br>
-    </div>
+<div class="row">
+    <div class="col-xl-12 col-lg-7">
+        <div class="card shadow mb-4">
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">DISC Test</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <%= form_tag disc_test_calculate_result_path, method: :post, class: "bg-light p-5 rounded", data: { turbo: "false" } do %>
+                <div class="form-group">
+                  <label>Question 1: When faced with a decision, I prefer to:</label><br>
+                  <%= radio_button_tag 'disc_test[question_1]', 'D', required: true %> Quickly make a choice and take action.<br>
+                  <%= radio_button_tag 'disc_test[question_1]', 'I' %> Discuss it with others and gather opinions.<br>
+                  <%= radio_button_tag 'disc_test[question_1]', 'S' %> Take my time to think it through.<br>
+                  <%= radio_button_tag 'disc_test[question_1]', 'C' %> Analyze all the data and details first.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 2: In a team setting, I am:</label><br>
-      <%= radio_button_tag 'question_2', 'D', required: true %> Often the leader or the one who sets the direction.<br>
-      <%= radio_button_tag 'question_2', 'I' %> The motivator who keeps the energy up.<br>
-      <%= radio_button_tag 'question_2', 'S' %> The reliable one who ensures tasks get done.<br>
-      <%= radio_button_tag 'question_2', 'C' %> The detail-oriented one who checks for accuracy.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 2: In a team setting, I am:</label><br>
+                  <%= radio_button_tag 'disc_test[question_2]', 'D', required: true %> Often the leader or the one who sets the direction.<br>
+                  <%= radio_button_tag 'disc_test[question_2]', 'I' %> The motivator who keeps the energy up.<br>
+                  <%= radio_button_tag 'disc_test[question_2]', 'S' %> The reliable one who ensures tasks get done.<br>
+                  <%= radio_button_tag 'disc_test[question_2]', 'C' %> The detail-oriented one who checks for accuracy.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 3: I feel most accomplished when:</label><br>
-      <%= radio_button_tag 'question_3', 'D', required: true %> I achieve my goals.<br>
-      <%= radio_button_tag 'question_3', 'I' %> I inspire or help others.<br>
-      <%= radio_button_tag 'question_3', 'S' %> I maintain harmony in the group.<br>
-      <%= radio_button_tag 'question_3', 'C' %> I ensure everything is accurate and correct.<br>
-    </div>
-    
-    <div class="form-group">
-      <label>Question 4: I describe myself as:</label><br>
-      <%= radio_button_tag 'question_4', 'D', required: true %> Direct and daring.<br>
-      <%= radio_button_tag 'question_4', 'I' %> Social and spirited.<br>
-      <%= radio_button_tag 'question_4', 'S' %> Calm and consistent.<br>
-      <%= radio_button_tag 'question_4', 'C' %> Precise and perfectionistic.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 3: I feel most accomplished when:</label><br>
+                  <%= radio_button_tag 'disc_test[question_3]', 'D', required: true %> I achieve my goals.<br>
+                  <%= radio_button_tag 'disc_test[question_3]', 'I' %> I inspire or help others.<br>
+                  <%= radio_button_tag 'disc_test[question_3]', 'S' %> I maintain harmony in the group.<br>
+                  <%= radio_button_tag 'disc_test[question_3]', 'C' %> I ensure everything is accurate and correct.<br>
+                </div>
+                
+                <div class="form-group">
+                  <label>Question 4: I describe myself as:</label><br>
+                  <%= radio_button_tag 'disc_test[question_4]', 'D', required: true %> Direct and daring.<br>
+                  <%= radio_button_tag 'disc_test[question_4]', 'I' %> Social and spirited.<br>
+                  <%= radio_button_tag 'disc_test[question_4]', 'S' %> Calm and consistent.<br>
+                  <%= radio_button_tag 'disc_test[question_4]', 'C' %> Precise and perfectionistic.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 5: In a disagreement, I tend to:</label><br>
-      <%= radio_button_tag 'question_5', 'D', required: true %> Stand my ground and debate my point.<br>
-      <%= radio_button_tag 'question_5', 'I' %> Try to persuade others with enthusiasm.<br>
-      <%= radio_button_tag 'question_5', 'S' %> Listen and seek compromise.<br>
-      <%= radio_button_tag 'question_5', 'C' %> Rely on facts and data to make my point.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 5: In a disagreement, I tend to:</label><br>
+                  <%= radio_button_tag 'disc_test[question_5]', 'D', required: true %> Stand my ground and debate my point.<br>
+                  <%= radio_button_tag 'disc_test[question_5]', 'I' %> Try to persuade others with enthusiasm.<br>
+                  <%= radio_button_tag 'disc_test[question_5]', 'S' %> Listen and seek compromise.<br>
+                  <%= radio_button_tag 'disc_test[question_5]', 'C' %> Rely on facts and data to make my point.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 6: I value:</label><br>
-      <%= radio_button_tag 'question_6', 'D', required: true %> Results and achievements.<br>
-      <%= radio_button_tag 'question_6', 'I' %> Interactions and relationships.<br>
-      <%= radio_button_tag 'question_6', 'S' %> Stability and reliability.<br>
-      <%= radio_button_tag 'question_6', 'C' %> Accuracy and thoroughness.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 6: I value:</label><br>
+                  <%= radio_button_tag 'disc_test[question_6]', 'D', required: true %> Results and achievements.<br>
+                  <%= radio_button_tag 'disc_test[question_6]', 'I' %> Interactions and relationships.<br>
+                  <%= radio_button_tag 'disc_test[question_6]', 'S' %> Stability and reliability.<br>
+                  <%= radio_button_tag 'disc_test[question_6]', 'C' %> Accuracy and thoroughness.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 7: When starting a new project, I:</label><br>
-      <%= radio_button_tag 'question_7', 'D', required: true %> Jump right in and set the goals.<br>
-      <%= radio_button_tag 'question_7', 'I' %> Share my excitement with others.<br>
-      <%= radio_button_tag 'question_7', 'S' %> Plan carefully and set a steady pace.<br>
-      <%= radio_button_tag 'question_7', 'C' %> Gather all the necessary information first.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 7: When starting a new project, I:</label><br>
+                  <%= radio_button_tag 'disc_test[question_7]', 'D', required: true %> Jump right in and set the goals.<br>
+                  <%= radio_button_tag 'disc_test[question_7]', 'I' %> Share my excitement with others.<br>
+                  <%= radio_button_tag 'disc_test[question_7]', 'S' %> Plan carefully and set a steady pace.<br>
+                  <%= radio_button_tag 'disc_test[question_7]', 'C' %> Gather all the necessary information first.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 8: I am often praised for my:</label><br>
-      <%= radio_button_tag 'question_8', 'D', required: true %> Leadership skills.<br>
-      <%= radio_button_tag 'question_8', 'I' %> Ability to energize and motivate others.<br>
-      <%= radio_button_tag 'question_8', 'S' %> Patience and consistency.<br>
-      <%= radio_button_tag 'question_8', 'C' %> Attention to detail.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 8: I am often praised for my:</label><br>
+                  <%= radio_button_tag 'disc_test[question_8]', 'D', required: true %> Leadership skills.<br>
+                  <%= radio_button_tag 'disc_test[question_8]', 'I' %> Ability to energize and motivate others.<br>
+                  <%= radio_button_tag 'disc_test[question_8]', 'S' %> Patience and consistency.<br>
+                  <%= radio_button_tag 'disc_test[question_8]', 'C' %> Attention to detail.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 9: In a group, I'd rather be:</label><br>
-      <%= radio_button_tag 'question_9', 'D', required: true %> Setting the direction.<br>
-      <%= radio_button_tag 'question_9', 'I' %> Building relationships.<br>
-      <%= radio_button_tag 'question_9', 'S' %> Supporting others.<br>
-      <%= radio_button_tag 'question_9', 'C' %> Ensuring accuracy.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 9: In a group, I'd rather be:</label><br>
+                  <%= radio_button_tag 'disc_test[question_9]', 'D', required: true %> Setting the direction.<br>
+                  <%= radio_button_tag 'disc_test[question_9]', 'I' %> Building relationships.<br>
+                  <%= radio_button_tag 'disc_test[question_9]', 'S' %> Supporting others.<br>
+                  <%= radio_button_tag 'disc_test[question_9]', 'C' %> Ensuring accuracy.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 10: When learning something new, I:</label><br>
-      <%= radio_button_tag 'question_10', 'D', required: true %> Dive in and learn by doing.<br>
-      <%= radio_button_tag 'question_10', 'I' %> Discuss it with others and share ideas.<br>
-      <%= radio_button_tag 'question_10', 'S' %> Take a systematic approach.<br>
-      <%= radio_button_tag 'question_10', 'C' %> Focus on the details and the process.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 10: When learning something new, I:</label><br>
+                  <%= radio_button_tag 'disc_test[question_10]', 'D', required: true %> Dive in and learn by doing.<br>
+                  <%= radio_button_tag 'disc_test[question_10]', 'I' %> Discuss it with others and share ideas.<br>
+                  <%= radio_button_tag 'disc_test[question_10]', 'S' %> Take a systematic approach.<br>
+                  <%= radio_button_tag 'disc_test[question_10]', 'C' %> Focus on the details and the process.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 11: I handle change by:</label><br>
-      <%= radio_button_tag 'question_11', 'D', required: true %> Seeing it as a new challenge to conquer.<br>
-      <%= radio_button_tag 'question_11', 'I' %> Embracing it with optimism.<br>
-      <%= radio_button_tag 'question_11', 'S' %> Adapting slowly and methodically.<br>
-      <%= radio_button_tag 'question_11', 'C' %> Analyzing the implications and details.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 11: I handle change by:</label><br>
+                  <%= radio_button_tag 'disc_test[question_11]', 'D', required: true %> Seeing it as a new challenge to conquer.<br>
+                  <%= radio_button_tag 'disc_test[question_11]', 'I' %> Embracing it with optimism.<br>
+                  <%= radio_button_tag 'disc_test[question_11]', 'S' %> Adapting slowly and methodically.<br>
+                  <%= radio_button_tag 'disc_test[question_11]', 'C' %> Analyzing the implications and details.<br>
+                </div>
 
-    <div class="form-group">
-      <label>Question 12: My approach to tasks is:</label><br>
-      <%= radio_button_tag 'question_12', 'D', required: true %> Goal-oriented and fast-paced.<br>
-      <%= radio_button_tag 'question_12', 'I' %> Collaborative and enthusiastic.<br>
-      <%= radio_button_tag 'question_12', 'S' %> Steady and methodical.<br>
-      <%= radio_button_tag 'question_12', 'C' %> Systematic and detail-oriented.<br>
-    </div>
+                <div class="form-group">
+                  <label>Question 12: My approach to tasks is:</label><br>
+                  <%= radio_button_tag 'disc_test[question_12]', 'D', required: true %> Goal-oriented and fast-paced.<br>
+                  <%= radio_button_tag 'disc_test[question_12]', 'I' %> Collaborative and enthusiastic.<br>
+                  <%= radio_button_tag 'disc_test[question_12]', 'S' %> Steady and methodical.<br>
+                  <%= radio_button_tag 'disc_test[question_12]', 'C' %> Systematic and detail-oriented.<br>
+                </div>
 
-    <%= submit_tag "Submit", class: "btn btn-primary" %>
-  <% end %>
+                <%= submit_tag "Submit", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>

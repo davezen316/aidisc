@@ -1,21 +1,26 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   # Defines the root path route ("/")
-  root "disc_tests#new"
+  
+  root "dashboard#show"
+  #root "disc_tests#new"
   resources :questions, only: [:index, :create]
   resources :users, only: [:create, :new]
   resource :session, controller: 'sessions', only: [:create, :new]
 
+  get '/dashboard', to: 'dashboard#show', as: 'dashboard'
+
   get 'disc_tests/', to: 'disc_tests#new', as: 'new_disc_test'
-  post 'disc_tests/result', to: 'disc_tests#result', as: 'disc_test_result'
+  post 'disc_tests/calculate', to: 'disc_tests#calculate_result', as: 'disc_test_calculate_result'
 
+  
   # # Use custom sessions controller for sign-in
-  # resources :sessions, controller: 'sessions', only: [:create]
+  # Custom sign-in route
+  get '/login' => 'sessions#new', as: 'signin'
+  delete '/logout' => 'sessions#destroy', as: 'signout'
+  get '/signup' => 'users#new', as: 'signup'
 
-  # Custom sign-in route (optional)
-  get '/signin' => 'sessions#new', as: 'signin'
-  delete '/signout' => 'sessions#destroy', as: 'signout'
-
-  get '/register' => 'users#new', as: 'signup'
+  get 'disc_tests/result/:id', to: 'disc_tests#result', as: 'disc_test_result'
+  
+  # Catch-all route for unmatched routes
+  # match '*path', to: 'application#render_404', via: :all
 end

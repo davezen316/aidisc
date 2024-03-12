@@ -1,0 +1,154 @@
+<%= form_with url: questions_path, method: :post do |f| %>
+  <div class="form-group">
+    <%= hidden_field_tag :disc_test_result_id, @disc_test_result.id %>
+    <%= f.label :question, "Your Question" %>
+    <%= f.text_area :question, class: "form-control mb-2", placeholder: "Type your question here..." %>
+    
+    <%= f.label :predesigned_questions, "Or select a predesigned question:" %>
+
+    <!-- 1st Row Predesigned Questions -->
+    <div class="row">
+      <!-- SWOT Questions -->
+      <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#questionsCardSWOT" class="d-block card-header py-3" data-toggle="collapse"
+                role="button" aria-expanded="true" aria-controls="questionsCardSWOT">
+                <h6 class="m-0 font-weight-bold text-primary">Understanding Strengths and Weaknesses</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse" id="questionsCardSWOT">
+                <div class="card-body">
+                    <%= f.select :predesigned_questions, options_for_select(swot_questions, selected: nil, disabled: ""), 
+                      { prompt: "Choose a question" }, { class: "form-control mb-2", id: "swot_questions" } %>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Interpersonal Relationship Questions -->
+      <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#questionsCardCommunication" class="d-block card-header py-3" data-toggle="collapse"
+                role="button" aria-expanded="true" aria-controls="questionsCardCommunication">
+                <h6 class="m-0 font-weight-bold text-primary">Communication and Interpersonal Relationship</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse" id="questionsCardCommunication">
+                <div class="card-body">
+                    <%= f.select :predesigned_questions, options_for_select(communication_questions, selected: nil, disabled: ""), 
+                      { prompt: "Choose a question" }, { class: "form-control mb-2", id: "communication_questions" } %>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- 1st Row Ended -->
+
+    <!-- 2nd Row Predesigned Questions -->
+    <div class="row">
+      <!-- SWOT Questions -->
+      <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#questionsCardTeamwork" class="d-block card-header py-3" data-toggle="collapse"
+                role="button" aria-expanded="true" aria-controls="questionsCardTeamwork">
+                <h6 class="m-0 font-weight-bold text-primary">Teamwork and Collaboration</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse" id="questionsCardTeamwork">
+                <div class="card-body">
+                    <%= f.select :predesigned_questions, options_for_select(teamwork_questions, selected: nil, disabled: ""), 
+                      { prompt: "Choose a question" }, { class: "form-control mb-2", id: "teamwork_questions" } %>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Interpersonal Relationship Questions -->
+      <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#questionsCardLeadership" class="d-block card-header py-3" data-toggle="collapse"
+                role="button" aria-expanded="true" aria-controls="questionsCardLeadership">
+                <h6 class="m-0 font-weight-bold text-primary">Leadership and Management</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse" id="questionsCardLeadership">
+                <div class="card-body">
+                    <%= f.select :predesigned_questions, options_for_select(leadership_questions, selected: nil, disabled: ""), 
+                      { prompt: "Choose a question" }, { class: "form-control mb-2", id: "leadership_questions" } %>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- 2nd Row Ended -->
+
+    <!-- 3rd Row Predesigned Questions -->
+    <div class="row">
+      <!-- SWOT Questions -->
+      <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#questionsCardAdaptability" class="d-block card-header py-3" data-toggle="collapse"
+                role="button" aria-expanded="true" aria-controls="questionsCardAdaptability">
+                <h6 class="m-0 font-weight-bold text-primary">Adapting to Change</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse" id="questionsCardAdaptability">
+                <div class="card-body">
+                    <%= f.select :predesigned_questions, options_for_select(adaptability_questions, selected: nil, disabled: ""), 
+                      { prompt: "Choose a question" }, { class: "form-control mb-2", id: "adaptability_questions" } %>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Interpersonal Relationship Questions -->
+      <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#questionsCardCareer" class="d-block card-header py-3" data-toggle="collapse"
+                role="button" aria-expanded="true" aria-controls="questionsCardCareer">
+                <h6 class="m-0 font-weight-bold text-primary">Career Planning</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse" id="questionsCardCareer">
+                <div class="card-body">
+                    <%= f.select :predesigned_questions, options_for_select(career_questions, selected: nil, disabled: ""), 
+                      { prompt: "Choose a question" }, { class: "form-control mb-2", id: "career_questions" } %>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- 3rd Row Ended -->
+
+    <!-- 4th Row Predesigned Questions -->
+    <div class="row">
+      <!-- SWOT Questions -->
+      <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#questionsCardGrowth" class="d-block card-header py-3" data-toggle="collapse"
+                role="button" aria-expanded="true" aria-controls="questionsCardGrowth">
+                <h6 class="m-0 font-weight-bold text-primary">Personal Growth and Development</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse" id="questionsCardGrowth">
+                <div class="card-body">
+                    <%= f.select :predesigned_questions, options_for_select(growth_questions, selected: nil, disabled: ""), 
+                      { prompt: "Choose a question" }, { class: "form-control mb-2", id: "growth_questions" } %>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- 4th Row Ended -->
+    
+    
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

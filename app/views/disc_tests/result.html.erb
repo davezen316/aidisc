@@ -1,3 +1,45 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">DISC Profile</h1>
+    <%# <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> %>
+</div>
+
+<!-- Profile Illustration Row -->
+
+<div class="row">
+
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Personality Profiles Analysis</h6>
+            </div>
+            <div class="card-body">
+                <h4 class="small font-weight-bold">Dominance <span
+                        class="float-right"><%=@d_bar%>%</span></h4>
+                <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: <%=@d_bar%>%"></div>
+                </div>
+                <h4 class="small font-weight-bold">Influence <span
+                        class="float-right"><%=@i_bar%>%</span></h4>
+                <div class="progress mb-4">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: <%=@i_bar%>%"></div>
+                </div>
+                <h4 class="small font-weight-bold">Steadiness <span
+                        class="float-right"><%=@s_bar%>%</span></h4>
+                <div class="progress mb-4">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <%=@s_bar%>%"></div>
+                </div>
+                <h4 class="small font-weight-bold">Compliance <span
+                        class="float-right"><%=@c_bar%>%</span></h4>
+                <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: <%=@c_bar%>%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%#= turbo_frame_tag "new_question", target: "_top" do %>
   <%#= form_tag questions_path, class: 'w-full' do |f| %>
@@ -12,52 +54,93 @@
   <%#= turbo_frame_tag "answer" %>
 <%# </div> %>
 
-<div class="container mt-12">
-  <h1>Your DISC Profile</h1>
-  
-  <div class="row mt-12">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">Profile Scores</div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Dominance: <%= @dominance %></li>
-          <li class="list-group-item">Influence: <%= @influence %></li>
-          <li class="list-group-item">Steadiness: <%= @steadiness %></li>
-          <li class="list-group-item">Compliance: <%=  @compliance %></li>
-        </ul>
+<div class="row">
+  <div class="col-xl-12 col-lg-7 col-md-6">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Personality Profiles Analysis</h6>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">Ask a Question</div>
-        <div class="card-body">
-          <%= form_with url: questions_path, method: :post, local: true do |f| %>
-            <div class="form-group">
-              <%= f.label :question, "Your Question" %>
-              <%= f.text_area :question, class: "form-control", placeholder: "Type your question here..." %>
-            </div>
-            <%= f.submit "Submit", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="row mt-12">
-    <br/>
-  </div>
- 
-  <div class="row mt-12">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">Response</div>
-        <div class="card-body">
-          <p><%= turbo_frame_tag "answer" %></p>
-        </div>
+      <div class="card-body">
+        <%= render partial: '/disc_tests/form' %>
       </div>
     </div>
   </div>
 </div>
 
-<%= javascript_include_tag 'https://code.jquery.com/jquery-3.5.1.slim.min.js' %>
-<%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const questionSwotSelect = document.getElementById('swot_questions');
+    const questionCommunicationSelect = document.getElementById('communication_questions');
+    const questionTeamworkSelect = document.getElementById('teamwork_questions');
+    const questionLeadershipSelect = document.getElementById('leadership_questions');
+    const questionAdaptabilitySelect = document.getElementById('adaptability_questions');
+    const questionCareerSelect = document.getElementById('career_questions');
+    const questionGrowthSelect = document.getElementById('growth_questions');
+    const questionForm = document.getElementById('question_form');
+    const questionInput = document.getElementById('question');
+
+    questionSwotSelect.addEventListener('change', function() {
+      questionInput.value = this.value; // Set the text area to the selected question
+    });
+
+    questionCommunicationSelect.addEventListener('change', function() {
+      questionInput.value = this.value; // Set the text area to the selected question
+    });
+
+    questionTeamworkSelect.addEventListener('change', function() {
+      questionInput.value = this.value; // Set the text area to the selected question
+    });
+
+    questionLeadershipSelect.addEventListener('change', function() {
+      questionInput.value = this.value; // Set the text area to the selected question
+    });
+
+    questionAdaptabilitySelect.addEventListener('change', function() {
+      questionInput.value = this.value; // Set the text area to the selected question
+    });
+
+    questionCareerSelect.addEventListener('change', function() {
+      questionInput.value = this.value; // Set the text area to the selected question
+    });
+
+    questionGrowthSelect.addEventListener('change', function() {
+      questionInput.value = this.value; // Set the text area to the selected question
+    });
+
+    // Submit form immediately upon selecting a question:
+    // questionSelect.addEventListener('change', function() {
+    //   questionForm.submit();
+    // });
+  });
+</script>
+
+<%# <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const questionButtons = document.querySelectorAll('.question-btn');
+    // Use getElementById to select the textarea by its ID
+    const questionInput = document.getElementById('question');
+
+    questionButtons.forEach(button => {
+      button.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default button action
+        questionInput.value = this.getAttribute('data-question');
+      });
+    });
+  });
+</script> %>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-7">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Answer</h6>
+      </div>
+      <div class="card-body">
+        <%= turbo_frame_tag "answer" do %>
+          <!-- This is where the answer will be displayed. -->
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

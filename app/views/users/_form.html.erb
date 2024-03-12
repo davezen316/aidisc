@@ -1,9 +1,7 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.email_field :email %>
+<div class="form-group">
+  <%= form.email_field :email, class: "form-control form-control-user", placeholder: "Email Address" %>
 </div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+<div class="form-group">
+  <%= form.password_field :password, class: "form-control form-control-user", placeholder: "Password" %>
 </div>

@@ -11289,3 +11289,12 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+/* Question Form */
+.form-control.mb-2 {
+  margin-bottom: 0.5rem; /* Spacing below text area */
+}
+
+.form-select.mb-2 {
+  margin-bottom: 0.5rem; /* Spacing below the select dropdown */
+}
