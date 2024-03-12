@@ -3,9 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
-# CSS preprocessors and bundlers
-gem 'cssbundling-rails'
-
 # For user credential
 gem 'clearance'
 
