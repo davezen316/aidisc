@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy', as: 'signout'
   get '/signup' => 'users#new', as: 'signup'
 
+  # Password Reset
+  get 'change_password' => 'users#edit_password', as: :edit_password
+  patch 'update_password' => 'users#update_password', as: :update_password
+
+
   get 'disc_tests/result/:id', to: 'disc_tests#result', as: 'disc_test_result'
   
   # Catch-all route for unmatched routes
